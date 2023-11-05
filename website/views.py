@@ -90,8 +90,41 @@ def update_record(request, pk):
     else:
         messages.success(request, 'You Must Be Logged To Add a Record')
         return redirect('home')   
+def photo_list(request):
+    photos = Photo.objects.all()
+    return render(request, 'photo_list.html', {'photos': photos})
 
+def photo_detail(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+    return render(request, 'photo_detail.html', {'photo': photo})
 
+def photo_create(request):
+    if request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('photo_list')
+    else:
+        form = PhotoForm()
+    return render(request, 'photo_form.html', {'form': form})
+
+def photo_update(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+    if request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES, instance=photo)
+        if form.is_valid():
+            form.save()
+            return redirect('photo_list')
+    else:
+        form = PhotoForm(instance=photo)
+    return render(request, 'photo_form.html', {'form': form})
+
+def photo_delete(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+    if request.method == 'POST':
+        photo.delete()
+        return redirect('photo_list')
+    return render(request, 'photo_confirm_delete.html', {'photo': photo})
 
 
 
