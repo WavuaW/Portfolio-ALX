@@ -10,5 +10,10 @@ urlpatterns = [
     path('delete_record/<int:pk>', views.delete_record, name='delete_record'),
     path('add_record/', views.add_record, name='add_record'),
     path('update_record/<int:pk>', views.update_record, name='update_record'),
+        path('photos/', views.photo_list, name='photo_list'),
+    path('photos/<int:pk>/', views.photo_detail, name='photo_detail'),
+    path('photos/new/', views.photo_create, name='photo_create'),
+    path('photos/<int:pk>/edit/', views.photo_update, name='photo_update'),
+    path('photos/<int:pk>/delete/', views.photo_delete, name='photo_delete'),
 
 ]
