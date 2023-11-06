@@ -126,5 +126,9 @@ def photo_delete(request, pk):
         return redirect('photo_list')
     return render(request, 'photo_confirm_delete.html', {'photo': photo})
 
+def photo_view(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+    return render(request, 'photo_view.html', {'photo': photo})
+
 
 

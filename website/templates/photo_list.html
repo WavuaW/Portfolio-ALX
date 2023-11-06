@@ -6,6 +6,7 @@
     {% for photo in photos %}
         <li>
             <a href="{% url 'photo_detail' photo.pk %}">{{ photo.title }}</a>
+            <a href="{% url 'photo_view' photo.pk %}">View</a>
             <a href="{% url 'photo_update' photo.pk %}">Edit</a>
             <a href="{% url 'photo_delete' photo.pk %}">Delete</a>
         </li>
