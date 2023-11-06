@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages       
 from .forms import SignUpForm, AddRecordForm, PhotoForm
-from .models import Record
+from .models import Record, Photo
 
 # Create your views here.
 def home(request):
