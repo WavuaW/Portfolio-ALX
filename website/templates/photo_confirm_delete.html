@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Confirm Deletion</h1>
-<p>Are you sure you want to delete "{{ photo.title }}"?</p>
+<h1 style="color: #000000; font-family: 'Arial', sans-serif;">Confirm Deletion</h1>
+<p style="font-size: 16px;">Are you sure you want to delete "{{ photo.title }}"?</p>
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Delete</button>
+    <button type="submit" style="background-color: #FF4500; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
 </form>
-<a href="{% url 'photo_list' %}">Cancel</a>
+<a href="{% url 'photo_list' %}" style="text-decoration: none; color: #333; margin-top: 20px; display: inline-block;">Cancel</a>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://lottie.host/51aabd2a-ee20-48af-99af-70b2d98c65d1/JUynQmDWYy.json" background="##FFFFFF" speed="1" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player>
+<lottie-player src="https://lottie.host/51aabd2a-ee20-48af-99af-70b2d98c65d1/JUynQmDWYy.json" background="#FFFFFF" style="width: 300px; height: 300px;" loop autoplay direction="1" mode="normal"></lottie-player>
 {% endblock content %}
