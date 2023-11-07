@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 style="color: #000000; font-family: 'Arial', sans-serif;">Photo List</h1>
-<ul>
+<h3 style="color: #333; font-family: 'Arial', sans-serif;">PROMO LIST</h3>
+<br/>
+<ol>
     {% for photo in photos %}
         <li>
             <a href="{% url 'photo_detail' photo.pk %}" style="text-decoration: none; color: #333;">{{ photo.title }}</a>
-            <a href="{% url 'photo_view' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #FF1493; color: #fff; padding: 5px 10px; border-radius: 5px;">View</a>
-            <a href="{% url 'photo_update' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #333; color: #fff; padding: 5px 10px; border-radius: 5px;">Edit</a>
-            <a href="{% url 'photo_delete' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #FF4500; color: #fff; padding: 5px 10px; border-radius: 5px;">Delete</a>
+            <a href="{% url 'photo_view' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #FE828C; color: #fff; padding: 5px 10px; border-radius: 5px;">View</a>
+            <a href="{% url 'photo_update' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #673147; color: #fff; padding: 5px 10px; border-radius: 5px;">Edit</a>
+            <a href="{% url 'photo_delete' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #DC143C; color: #fff; padding: 5px 10px; border-radius: 5px;">Delete</a>
             <br/>
             <br/>
         </li>
     {% endfor %}
-</ul>
-<a href="{% url 'photo_create' %}" style="text-decoration: none; background-color: #333; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-top: 20px;">Upload a new photo</a>
+</ol>
+<a href="{% url 'photo_create' %}" style="text-decoration: none; background-color: #FE828C; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-top: 20px;">Upload a new photo</a>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <lottie-player src="https://lottie.host/51aabd2a-ee20-48af-99af-70b2d98c65d1/JUynQmDWYy.json" background="##FFFFFF" speed="1" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player>
 {% endblock content %}
