@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 style="color: #00000; font-family: 'Garamond', sans-serif;">{% if form.instance.pk %}Edit Photo{% else %}Upload Photo{% endif %}</h1>
+    <h3 style="color: #00000; font-family: 'Garamond', sans-serif;">{% if form.instance.pk %}Edit Photo{% else %}UPLOAD PROMO{% endif %}</h3>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" style="background-color: #FE828C; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">{% if form.instance.pk %}Update Photo{% else %}Upload Photo{% endif %}</button>
+        <button type="submit" style="background-color: #FE828C; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onmouseover="this.style.backgroundColor='#673147'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#FE828C'; this.style.color='#ffffff';">{% if form.instance.pk %}Update Photo{% else %}Upload Promo{% endif %}</button>
     </form>
-    <a href="{% url 'photo_list' %}" style="text-decoration: none; background-color: #DC143C; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-top: 20px;">Back to Photo List</a>
+    <a href="{% url 'photo_list' %}" style="text-decoration: none; background-color: #DC143C; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-top: 20px;" onmouseover="this.style.backgroundColor='#FE828C'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#673147'; this.style.color='#ffffff';">Back to Photo List</a>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <lottie-player src="https://lottie.host/51aabd2a-ee20-48af-99af-70b2d98c65d1/JUynQmDWYy.json" background="#FFFFFF" style="width: 300px; height: 300px;" loop autoplay direction="1" mode="normal"></lottie-player>
 {% endblock content %}
