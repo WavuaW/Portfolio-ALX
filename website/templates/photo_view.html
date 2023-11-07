@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 style="color: #00000; font-family: 'Arial', sans-serif;">View Photo - {{ photo.title }}</h1>
+    <h3 style="color: #00000; font-family: 'Arial', sans-serif;">PROMO ITEM - {{ photo.title }}</h3><br/>
+    <p style="font-size: 18px">{{ photo.description }}</p><br/>
     <img src="{{ photo.image.url }}" alt="{{ photo.title }}" style="max-width: 100%; height: auto;">
-    <p>{{ photo.description }}</p>
     <a href="{% url 'photo_list' %}" style="text-decoration: none; background-color: #673147; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-top: 20px;" onmouseover="this.style.backgroundColor='#FE828C'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#673147'; this.style.color='#ffffff';" >Back to Photo List</a>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <lottie-player src="https://lottie.host/51aabd2a-ee20-48af-99af-70b2d98c65d1/JUynQmDWYy.json" background="#FFFFFF" style="width: 300px; height: 300px;" loop autoplay direction="1" mode="normal"></lottie-player>
