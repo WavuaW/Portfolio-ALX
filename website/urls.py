@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import send_all_emails, send_email_to_all
+
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -19,6 +21,7 @@ urlpatterns = [
     path('photos/<int:pk>/edit/', views.photo_update, name='photo_update'),
     path('photos/<int:pk>/delete/', views.photo_delete, name='photo_delete'),
     path('send-all-emails/', send_all_emails, name='send_all_emails'),
+    path('send-email-to-all/', send_email_to_all, name='send_email_to_all'), 
 
 
 ]

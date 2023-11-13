@@ -1,0 +1,11 @@
+<!-- send_email_to_all.html -->
+<form method="post" action="{% url 'send_email_to_all' %}">
+    {% csrf_token %}
+    <label for="subject">Subject:</label>
+    <input type="text" name="subject" required>
+    <br>
+    <label for="message">Message:</label>
+    <textarea name="message" rows="4" cols="50" required></textarea>
+    <br>
+    <button type="submit">Send Email to All Records</button>
+</form>

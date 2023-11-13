@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages       
 from .forms import SignUpForm, AddRecordForm, PhotoForm
 from .models import Record, Photo
-from .tasks import send_delayed_email
+from .tasks import send_delayed_emails
 from django.utils import timezone
 
 
@@ -140,3 +140,19 @@ def send_all_emails(request):
         eta=timezone.now() + timezone.timedelta(hours=1)
     )
     return redirect('success')  # Redirect to a success page
+
+def send_email_to_all(request):
+    if request.method == 'POST':
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        # Schedule the task to send emails to all records in the future (e.g., 1 hour later)
+        for record in Record.objects.all():
+            send_delayed_emails.apply_async(
+                (record.id, subject, message),
+                eta=timezone.now() + timezone.timedelta(hours=1)
+            )
+
+        return redirect('success')  # Redirect to a success page
+
+    return render(request, 'website/send_email_to_all.html')
