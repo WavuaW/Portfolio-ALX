@@ -3,6 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages       
 from .forms import SignUpForm, AddRecordForm, PhotoForm
 from .models import Record, Photo
+from .tasks import send_delayed_email
+from django.utils import timezone
+
 
 # Create your views here.
 def home(request):
@@ -129,3 +132,11 @@ def photo_delete(request, pk):
 def photo_view(request, pk):
     photo = get_object_or_404(Photo, pk=pk)
     return render(request, 'photo_view.html', {'photo': photo})
+
+def send_all_emails(request):
+    # Schedule the task to send emails to all records in the future (e.g., 1 hour later)
+    send_delayed_emails.apply_async(
+        ('Subject', 'Message'),
+        eta=timezone.now() + timezone.timedelta(hours=1)
+    )
+    return redirect('success')  # Redirect to a success page
