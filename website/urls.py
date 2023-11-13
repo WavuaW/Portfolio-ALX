@@ -18,6 +18,8 @@ urlpatterns = [
     path('photos/new/', views.photo_create, name='photo_create'),
     path('photos/<int:pk>/edit/', views.photo_update, name='photo_update'),
     path('photos/<int:pk>/delete/', views.photo_delete, name='photo_delete'),
+    path('send-all-emails/', send_all_emails, name='send_all_emails'),
+
 
 ]
 
