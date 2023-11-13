@@ -149,7 +149,7 @@ def send_email_to_all(request):
         # Schedule the task to send emails to all records in the future (e.g., 1 hour later)
         for record in Record.objects.all():
             send_delayed_emails.apply_async(
-                (record.id, subject, message),
+                (subject, message),
                 eta=timezone.now() + timezone.timedelta(hours=1)
             )
 

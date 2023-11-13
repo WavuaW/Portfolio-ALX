@@ -8,8 +8,10 @@
         <li>
             <a href="{% url 'photo_detail' photo.pk %}" style="text-decoration: none; color: #333;">{{ photo.title }}</a>
             <a href="{% url 'photo_view' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #FE828C; color: #fff; padding: 15px 20px; border-radius: 5px;" onmouseover="this.style.backgroundColor='#673147'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#FE828C'; this.style.color='#ffffff';">View</a>
-            <a href="{% url 'photo_update' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #673147; color: #fff; padding: 15px 20px; border-radius: 5px;" onmouseover="this.style.backgroundColor='#FE828C'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#673147'; this.style.color='#ffffff';">Edit</a>
-            <a href="{% url 'photo_delete' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #DC143C; color: #fff; padding: 15px 20px; border-radius: 5px;" onmouseover="this.style.backgroundColor='#FE828C'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#DC143C'; this.style.color='#ffffff';">Delete</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'photo_update' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #673147; color: #fff; padding: 15px 20px; border-radius: 5px;" onmouseover="this.style.backgroundColor='#FE828C'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#673147'; this.style.color='#ffffff';">Edit</a>
+                <a href="{% url 'photo_delete' photo.pk %}" style="margin-left: 10px; text-decoration: none; background-color: #DC143C; color: #fff; padding: 15px 20px; border-radius: 5px;" onmouseover="this.style.backgroundColor='#FE828C'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#DC143C'; this.style.color='#ffffff';">Delete</a>
+            {% endif %}
             {% comment %} <button style="background-color: #3498db; color: #ffffff; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px; cursor: pointer; border-radius: 5px;" onmouseover="this.style.backgroundColor='#673147'; this.style.color='#f1c40f';" onmouseout="this.style.backgroundColor='#FE828C'; this.style.color='#ffffff';">Hover Me</button> {% endcomment %}
             <br/>
             <br/>
