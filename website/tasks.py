@@ -9,4 +9,4 @@ def send_delayed_emails(subject, message):
     records = Record.objects.all()
 
     for record in records:
-        send_mail(subject, message, 'from@example.com', [record.email])
+        send_mail(subject, message, 'wavuamuroka@gmail.com.com', [record.email])

@@ -15,7 +15,7 @@ celery_app.config_from_object('django.conf:settings', namespace='CELERY')
 # Auto-discover tasks in all installed apps
 celery_app.autodiscover_tasks()
 
-app.conf.update(
+celery_app.conf.update(
     result_expires=3600,
     worker_log_format='[%(asctime)s] [%(levelname)s] [%(task_name)s(%(task_id)s)] %(message)s',
     worker_redirect_stdouts_level='INFO',

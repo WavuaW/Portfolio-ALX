@@ -155,4 +155,4 @@ def send_email_to_all(request):
 
         return redirect('success')  # Redirect to a success page
 
-    return render(request, 'website/send_email_to_all.html')
+    return render(request, 'send_email_to_all.html')
