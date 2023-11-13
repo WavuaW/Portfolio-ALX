@@ -129,6 +129,3 @@ def photo_delete(request, pk):
 def photo_view(request, pk):
     photo = get_object_or_404(Photo, pk=pk)
     return render(request, 'photo_view.html', {'photo': photo})
-
-
-
