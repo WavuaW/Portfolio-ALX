@@ -22,7 +22,7 @@ urlpatterns = [
     path('photos/<int:pk>/delete/', views.photo_delete, name='photo_delete'),
     path('send-all-emails/', send_all_emails, name='send_all_emails'),
     path('send-email-to-all/', send_email_to_all, name='send_email_to_all'), 
-    path('test/' )
+    path('test/', views.exp, name='exp' )
 
 
 ]
